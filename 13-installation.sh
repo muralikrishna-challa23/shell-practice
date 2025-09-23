@@ -16,14 +16,26 @@ if [ $1 -ne 0 ]; then
  fi
 }
 
+dnf list installed mysql -y
+if [ $? -ne 0 ]; then
+    dnf install mysql -y
+    VALIDATE $? "MYSQL"
+else
+    echo "$2 is already installed"
+fi
 
-dnf install mysql -y
-VALIDATE $? "MYSQL"
+dnf list installed nginx -y
+if [ $? -ne 0 ]; then
+    dnf install nginx -y
+    VALIDATE $? "NGINX"
+else
+    echo "$2 is already installed"
+fi
 
-
-dnf install nginx -y
-VALIDATE $? "NGINX"
-
-
-dnf install mongodb-mongosh -y
-VALIDATE $? "MONGOSH"
+dnf list installed mongodb-mongosh -y
+if [ $? -ne 0 ]; then
+    dnf install mongodb-mongosh -y
+    VALIDATE $? "MONGOSH"
+else
+    echo "$2 is already installed"
+fi
