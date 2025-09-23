@@ -19,3 +19,6 @@ echo "Sum is: $SUM"
 
 LEADERS=("Modi" "Trump" "Putin")
 echo "Leaders are:: ${LEADERS[@]}"
+
+echo "Leaders are:: ${LEADERS[0]}"
+echo "Leaders are:: ${LEADERS[1]}"
