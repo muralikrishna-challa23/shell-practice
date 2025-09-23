@@ -7,4 +7,5 @@ echo "Current directory::$PWD"
 echo "home directory of executed user::$HOME"
 echo "Who executed the script::$USER"
 echo "PID of script executed::$$"
+sleep 10 &
 echo "Last backgroud run command::$!"
