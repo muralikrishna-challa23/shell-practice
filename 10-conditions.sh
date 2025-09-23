@@ -3,10 +3,9 @@
 NUMBER=$1
 
 if [ -z $NUMBER ]; then
-   echo "Please provide value "
-fi   
+   echo "Please provide value "   
 
-if [ $NUMBER -lt 10 ]; then
+elif [ $NUMBER -lt 10 ]; then
     echo " The given number $NUMBER is less than 10"
 
 else
