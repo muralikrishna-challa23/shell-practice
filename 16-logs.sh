@@ -10,6 +10,9 @@ LOG_FOLDER="/var/log/shell-script"
 SCRIPT_NAME="$(echo $0 | cut -d '.' -f1)"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
+mkdir -p $LOG_FOLDER
+echo "Script started executing at: $(date)" | tee -a $LOG_FILE
+
 if [ $USERID -ne 0 ]; then
     echo -e "ERROR::Please run this with root ccess" | tee -a $LOG_FILE
     exit 1
