@@ -2,7 +2,7 @@
 
 NUMBER=$1
 
-if [ -z "$NUMBER" ]; then
+if [ -z $NUMBER ]; then
    echo "Please provide value "
 fi   
 
