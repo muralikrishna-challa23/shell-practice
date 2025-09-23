@@ -23,5 +23,5 @@ echo "Leaders are:: ${LEADERS[@]}"
 echo "Leaders are:: ${LEADERS[0]}"
 echo "Leaders are:: ${LEADERS[1]}"
 
-echo "Leaders are:: $LEADERS"
+echo "Leaders are:: ${LEADERS}"
 
