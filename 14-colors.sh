@@ -3,7 +3,7 @@
 USERID=$(id -u)
 R="\e[31m"
 
-echo "$R Hellow World"
+echo -e "$R Hellow World"
 
 
 if [ $USERID -ne 0 ]; then
