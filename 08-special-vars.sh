@@ -2,7 +2,9 @@
 
 echo "All Parameters/Arguments::$@"
 echo "All Parameters/Arguments::$*"
-echo "All Parameters/Arguments::$0"
-echo "All Parameters/Arguments::$PWD"
-echo "All Parameters/Arguments::$HOME"
-echo "All Parameters/Arguments::$USER"
+echo "File name executed::$0"
+echo "Current directory::$PWD"
+echo "home directory of executed user::$HOME"
+echo "Who executed the script::$USER"
+echo "PID of script executed::$$"
+echo "Last backgroud run command::$!"
