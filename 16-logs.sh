@@ -7,8 +7,8 @@ Y="\e[33m"
 W="\e[0m"
 
 LOG_FOLDER="/var/log/shell-script"
-SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
-LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME.log"
+SCRIPT_NAME="$(echo $0 | cut -d '.' -f1)"
+LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
 echo "$LOG_FOLDER $SCRIPT_NAME $LOG_FILE"
 
