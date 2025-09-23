@@ -16,3 +16,6 @@ SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
 echo "Name is: $NAME"
 echo "Sum is: $SUM"
+
+LEADERS=("Modi" "Trump" "Putin")
+echo "Leaders are:: $LEADERS[*]
