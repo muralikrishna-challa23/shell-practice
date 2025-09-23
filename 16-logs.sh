@@ -27,25 +27,25 @@ if [ $1 -ne 0 ]; then
  fi
 }
 
-dnf list installed mysql -y
+dnf list installed mysql -y &>> $LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
+    dnf install mysql -y &>> $LOG_FILE
     VALIDATE $? "MYSQL"
 else
     echo -e "MYSQL is already installed ....$Y SKIPPING $W" | tee -a $LOG_FILE
 fi
 
-dnf list installed nginx -y
+dnf list installed nginx -y &>> $LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y
+    dnf install nginx -y &>> $LOG_FILE
     VALIDATE $? "NGINX"
 else
     echo -e "NGINX is already installed ....$Y SKIPPING $W" | tee -a $LOG_FILE
 fi
 
-dnf list installed mongodb-mongosh -y
+dnf list installed mongodb-mongosh -y &>> $LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install mongodb-mongosh -y
+    dnf install mongodb-mongosh -y &>> $LOG_FILE
     VALIDATE $? "MONGOSH"
 else
     echo -e "MONGOSH is already installed ....$Y SKIPPING $W" | tee -a $LOG_FILE
