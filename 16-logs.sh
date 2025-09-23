@@ -10,7 +10,7 @@ LOG_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d '.' -f1)
 LOG_FILE=$LOG_FOLDER/$SCRIPT_NAME.log"
 
-echo $LOG_FOLDER $SCRIPT_NAME $LOG_FILE
+echo "$LOG_FOLDER $SCRIPT_NAME $LOG_FILE"
 
 
 if [ $USERID -ne 0 ]; then
