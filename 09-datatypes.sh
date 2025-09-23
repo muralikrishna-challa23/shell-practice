@@ -9,6 +9,9 @@ echo "Sum is: $SUM"
 
 NAME="DevOps"
 
+SUM=0
+echo "Sum is: $SUM"
+
 SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
 echo "Name is: $NAME"
