@@ -8,16 +8,16 @@ W="\e[0m"
 
 
 if [ $USERID -ne 0 ]; then
-    echo "ERROR::Please run this with root ccess"
+    echo -e "ERROR::Please run this with root ccess"
     exit 1
  fi
 
 VALIDATE() {
 if [ $1 -ne 0 ]; then
-    echo "ERROR:: Installing $2 ....$R FAILURE $W"
+    echo -e "ERROR:: Installing $2 ....$R FAILURE $W"
     exit 1
  else
-    echo "Installing $2 .....$G SUCCESS $W"   
+    echo -e "Installing $2 .....$G SUCCESS $W"   
  fi
 }
 
@@ -26,7 +26,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
     VALIDATE $? "MYSQL"
 else
-    echo "MYSQL is already installed ....$Y SKIPPING $W"
+    echo -e "MYSQL is already installed ....$Y SKIPPING $W"
 fi
 
 dnf list installed nginx -y
@@ -34,7 +34,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? "NGINX"
 else
-    echo "NGINX is already installed ....$Y SKIPPING $W"
+    echo -e "NGINX is already installed ....$Y SKIPPING $W"
 fi
 
 dnf list installed mongodb-mongosh -y
@@ -42,5 +42,5 @@ if [ $? -ne 0 ]; then
     dnf install mongodb-mongosh -y
     VALIDATE $? "MONGOSH"
 else
-    echo "MONGOSH is already installed ....$Y SKIPPING $W"
+    echo -e "MONGOSH is already installed ....$Y SKIPPING $W"
 fi
