@@ -4,5 +4,5 @@
 set -euo pipefail
 
 echo "Hello"
-grep 'OG' /etc/passsss
+grep 'OG' /etc/passsss | sort
 echo "Murali"
