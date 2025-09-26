@@ -1,7 +1,7 @@
 #!/bin/bash
 
-set -e
-#set -euo pipefail
+#set -e
+set -euo pipefail
 
 echo "Hello"
 grep 'OG' /etc/passsss
