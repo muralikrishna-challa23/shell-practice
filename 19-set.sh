@@ -5,7 +5,7 @@ set -e
 
 error_func(){
 
-    echo "There is an error:$LINENO   $BASH_COMMAND"
+    echo "There is an error:$LASTNO   $BASH_COMMAND"
 }
 
 trap error_func ERR
