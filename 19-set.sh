@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#set -e
-set -euo pipefail
+set -e
+#set -euo pipefail
 
 echo "Hello"
-fhdsjhfjd
+grep 'OG' /etc/passsss | sort
 echo "Murali"
