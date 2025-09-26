@@ -3,12 +3,11 @@
 set -e
 #set -euo pipefail
 
-error_func(){
+#error_func(){
+#    echo "There is an error:$LASTNO   $BASH_COMMAND"
+#}
 
-    echo "There is an error:$LASTNO   $BASH_COMMAND"
-}
-
-trap error_func ERR
+trap 'echo "There is an error:$LASTNO   $BASH_COMMAND"' ERR
 
 echo "Hello"
 #grep 'OG' /etc/passsss | sort
