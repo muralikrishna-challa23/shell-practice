@@ -7,7 +7,7 @@ set -e
 #    echo "There is an error:$LASTNO   $BASH_COMMAND"
 #}
 
-trap 'echo "There is an error:$LASTNO   $BASH_COMMAND"' ERR
+trap 'echo "There is an error:$LINENO   $BASH_COMMAND"' ERR
 
 echo "Hello"
 #grep 'OG' /etc/passsss | sort
