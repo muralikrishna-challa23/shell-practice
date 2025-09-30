@@ -12,10 +12,6 @@ LOG_FOLDER="/var/log/shell_log"
 SCRIPT_NAME="$(echo $0 | cut -d '.' -f1 )"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
-echo -e "Log path: $R $LOG_FOLDER $W"
-echo -e "Script Name: $G $SCRIPT_NAME.sh $W"
-echo -e "log file name: $Y $LOG_FILE $W"
-
 if [ $USERID -ne 0 ]; then
     echo -e "Please run with $G root user $W"
     exit 1
