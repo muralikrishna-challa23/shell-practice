@@ -16,7 +16,7 @@ SOURCE_DIR=$1
 DEST_DIR=$2
 DAYS="${3:-14}"
 
-mkdir -p $LOG_FOLDER &>> $LOG_FILE
+mkdir -p $LOG_FOLDER
 
 if [ $USERID -ne 0 ]; then
     echo -e "Please run with $G root user $W" | tee -a $LOG_FILE
