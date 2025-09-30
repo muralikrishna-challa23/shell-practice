@@ -59,6 +59,7 @@ else
     FILES=$(find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS)
     VALIDATE $? "List of files found to archive."
     ZIP_NAME=$DEST_DIR/app-logs-$TIMESTAMP.zip
+    echo -e "zip file name is: $G $ZIP_NAME $W"
   #  find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS | zip 
 
 fi
