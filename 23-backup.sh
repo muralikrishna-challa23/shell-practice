@@ -11,7 +11,7 @@ USERID=$(id -u)
 LOG_FOLDER="/var/log/shell_log"
 SCRIPT_NAME="$(echo $0 | cut -d '.' -f1 )"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
-TIMESTAMP="$(date +%y-%m-%d-%H-%M).zip"
+TIMESTAMP="$(date +%y-%m-%d-%H-%M)"
 
 SOURCE_DIR=$1
 DEST_DIR=$2
@@ -44,29 +44,37 @@ fi
 
 if [ ! -d $SOURCE_DIR ]; then
     echo -e "ERROR: $SOURCE_DIR not found" | tee-a $LOG_FILE
+    exit 1
 fi
 
 if [ ! -d $DEST_DIR ]; then
     echo -e "ERROR: $DEST_DIR not found" | tee-a $LOG_FILE
+    exit 1
 fi
 
 FILES=$(find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS)
 VALIDATE $? "List of files found to archive:: $FILES"
 
 if [ -z $FILES ]; then
-    echo -e "No files to archive..."
+    echo -e "No files to archive... $R SKIPPING $W"
 else
     FILES=$(find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS)
     VALIDATE $? "List of files found to archive."
     ZIP_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     echo -e "zip file name is: $G $ZIP_NAME $W"
-  #  find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS | zip 
+    find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS | zip -@ -j $ZIP_NAME
 
+    if [ -f $ZIP_NAME ]; then
+         echo -e "Archiving is ....$G SUCCESS $W"
+
+        while IFS= read -r filename;
+        do
+            echo "Deleting the file:: $filename"
+            rm -rf $filepath
+            echo "Deleted the file:: $filename"
+        done <<< $FILES
+    else
+        echo -e "Archival process...$R FAILURE  $W"
+        exit 1
+    fi
 fi
-
-
-while IFS= read -r filename;
-do
- echo $filename
-done <<< $FILES
-
