@@ -16,7 +16,7 @@ echo -e "Log path: $R $LOG_FOLDER $W"
 echo -e "Script Name: $G $SCRIPT_NAME.sh $W"
 echo -e "log file name: $Y $LOG_FILE $W"
 
-if [$USERID -ne 0]
+if [$USERID -ne 0]; then
     echo -e "Please run with $G root user $W"
     exit 1
 fi
