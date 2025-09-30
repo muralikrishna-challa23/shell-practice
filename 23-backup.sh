@@ -70,7 +70,7 @@ else
         while IFS= read -r filename;
         do
             echo "Deleting the file:: $filename"
-            rm -rf $filepath
+            rm -rf $filename
             echo "Deleted the file:: $filename"
         done <<< $FILES
     else
