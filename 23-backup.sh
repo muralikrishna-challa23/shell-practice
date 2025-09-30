@@ -43,12 +43,12 @@ if [ $# -lt 2 ]; then
 fi
 
 if [ ! -d $SOURCE_DIR ]; then
-    echo -e "ERROR: $SOURCE_DIR not found" | tee-a $LOG_FILE
+    echo -e "ERROR: $SOURCE_DIR not found" | tee -a $LOG_FILE
     exit 1
 fi
 
 if [ ! -d $DEST_DIR ]; then
-    echo -e "ERROR: $DEST_DIR not found" | tee-a $LOG_FILE
+    echo -e "ERROR: $DEST_DIR not found" | tee -a $LOG_FILE
     exit 1
 fi
 
