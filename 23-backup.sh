@@ -24,11 +24,12 @@ if [ $USERID -ne 0 ]; then
 fi
 
 VALIDATE(){
-    IF [ $1 -ne 0 ]; then
+    if [ $1 -ne 0 ]; then
         echo "ERROR: $2 .... $R FAILED $W"
         exit 1
     else
         echo "$2 .....$G SUCCESS $W"
+    fi    
 }
 
 if [ ! -d $SOURCE_DIR ]; then
