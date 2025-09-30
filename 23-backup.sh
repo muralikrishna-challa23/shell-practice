@@ -14,7 +14,7 @@ LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=$(3:-14)
+DAYS="$(3:-14)"
 
 mkdir -p $LOG_FOLDER &>> $LOG_FILE
 
