@@ -16,9 +16,9 @@ echo -e "Log path: $R $LOG_FOLDER $W"
 echo -e "Script Name: $G $SCRIPT_NAME.sh $W"
 echo -e "log file name: $Y $LOG_FILE $W"
 
-if [ $USERID -ne 0 ]
-        echo -e "Please run script with $R root user $W"
-        exit 1
+if [$USERID -ne 0]
+    echo -e "Please run with $G root user $W"
+    exit 1
 fi
 
 FILES=$(find $1 -name '*.log' -type f -mtime +14)
