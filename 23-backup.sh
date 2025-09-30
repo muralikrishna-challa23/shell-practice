@@ -56,9 +56,10 @@ VALIDATE $? "List of files found to archive:: $FILES"
 if [ -z $FILES ]; then
     echo -e "No files to archive..."
 else
-    FILES=$(find $SOURCE_DIR -name '*.log' -type f -mtime +1DAYS4)
+    FILES=$(find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS)
     VALIDATE $? "List of files found to archive."
-    ZIP_NAME=$DEST_DIR/app-logs-$TIMESTAMP
+    ZIP_NAME=$DEST_DIR/app-logs-$TIMESTAMP.zip
+  #  find $SOURCE_DIR -name '*.log' -type f -mtime +$DAYS | zip 
 
 fi
 
