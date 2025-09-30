@@ -25,10 +25,10 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo "ERROR: $2 .... $R FAILED $W"
+        echo  -e "ERROR: $2 .... $R FAILED $W"
         exit 1
     else
-        echo "$2 .....$G SUCCESS $W"
+        echo -e "$2 .....$G SUCCESS $W"
     fi    
 }
 
@@ -39,7 +39,6 @@ fi
 if [ ! -d $DEST_DIR ]; then
     echo -e "ERROR: $DEST_DIR not found" | tee-a $LOG_FILE
 fi
-
 
 FILES=$(find $1 -name '*.log' -type f -mtime +14)
 VALIDATE $? "List of files found to archive."
