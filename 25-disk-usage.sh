@@ -61,7 +61,7 @@ do
         MESSAGE+="Disk High Usage $USAGE% for partition: $PARTITION"
     fi
 
-    echo "$MESSAGE"
+    echo -e "$MESSAGE"
 done  <<< $DISK_USAGE
 
 
