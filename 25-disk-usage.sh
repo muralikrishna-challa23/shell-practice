@@ -13,6 +13,7 @@ SCRIPT_NAME="$(echo $0 | cut -d '.' -f1 )"
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 TIMESTAMP="$(date +%y-%m-%d-%H-%M)"
 
+THRESHOLD=2
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
@@ -49,14 +50,15 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
-DISK_USAGE=$(df -hT |grep -v Filesystem | awk '{print $6}' | cut -d '%' -f1)
-DISK_MOUNT=$(df -hT |grep -v Filesystem | awk '{print $7}')
+DISK_USAGE=$(df -hT |grep -v Filesystem)
 
-cho -e "Disk high usage: $DISK_USAGE%  for $DISK_MOUNT 
+while IFS= read -r line
+do
+    USAGE=$( echo $line | awk '{print $6}' |cut -d '%' f1 )
+    PARTITION=$( echo $line | awk '{print $7}' )
 
-# while IFS= read -r record
-# do
-#   echo -e "Disk high usage: $DISK_USAGE%  for $DISK_MOUNT"
-# done  <<< $DISK_USAGE
+    echo -e "Disk High Usage $USAGE for partition $PARTITION"
+
+done  <<< $DISK_USAGE
 
 
