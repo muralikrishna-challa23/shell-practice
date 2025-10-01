@@ -14,6 +14,7 @@ LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 TIMESTAMP="$(date +%y-%m-%d-%H-%M)"
 
 THRESHOLD=2
+MESSAGE=""
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
@@ -61,7 +62,7 @@ do
         MESSAGE+="Disk High Usage $USAGE% for partition: $PARTITION"
     fi
 
-    echo -e "Body mesage: $MESSAGE" | tee -a $LOG_FILE
+    echo -e "Body message: $MESSAGE" | tee -a $LOG_FILE
 done  <<< $DISK_USAGE
 
 
