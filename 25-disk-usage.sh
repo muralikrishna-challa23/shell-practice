@@ -54,7 +54,7 @@ DISK_USAGE=$(df -hT |grep -v Filesystem)
 
 while IFS= read -r line
 do
-    USAGE=$( echo $line | awk '{print $6}' |cut -d '%' f1 )
+    USAGE=$( echo $line | awk '{print $6}' |cut -d '%' -f1 )
     PARTITION=$( echo $line | awk '{print $7}' )
 
     echo -e "Disk High Usage $USAGE for partition $PARTITION"
