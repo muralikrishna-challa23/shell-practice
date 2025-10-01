@@ -61,8 +61,9 @@ do
     if [ $USAGE -gt $THRESHOLD ] ; then
         MESSAGE+="Disk High Usage $USAGE% for partition: $PARTITION \n"
     fi
-
-    echo -e "Body message: $MESSAGE" | tee -a $LOG_FILE
 done  <<< $DISK_USAGE
+
+echo -e "Body message: $MESSAGE" | tee -a $LOG_FILE
+
 
 
